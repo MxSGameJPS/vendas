@@ -62,14 +62,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const botoesCTA = document.querySelectorAll(".cta-button, .botao-comprar");
 
   botoesCTA.forEach((botao) => {
-    botao.addEventListener("click", function () {
-      // Scroll para a seção de preço
-      const secaoPreco = document.querySelector(".preco");
+    botao.addEventListener("click", function (event) {
+      // Se o clique for em um link, não impedir a navegação para o link
+      // Apenas scroll para a seção de preço se estiver na mesma página
+      if (
+        this.getAttribute("href") &&
+        this.getAttribute("href").startsWith("#")
+      ) {
+        event.preventDefault();
 
-      if (secaoPreco) {
-        secaoPreco.scrollIntoView({
-          behavior: "smooth",
-        });
+        // Scroll para a seção de preço
+        const secaoPreco = document.querySelector(".preco");
+
+        if (secaoPreco) {
+          secaoPreco.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
       }
     });
   });

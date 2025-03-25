@@ -128,11 +128,14 @@ header .container {
   font-size: 1.2rem;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   transition: transform 0.3s, background-color 0.3s;
   margin-bottom: 1rem;
   position: relative;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Efeito de brilho no botão */
@@ -613,6 +616,8 @@ header .container {
   position: relative;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Efeito de brilho no botão de comprar */
