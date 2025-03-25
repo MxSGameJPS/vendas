@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /checkout/confirmation
+
+Sitemap: https://www.programacaoprofit.com.br/sitemap.xml 
