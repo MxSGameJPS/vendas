@@ -1,0 +1,822 @@
+/* Reset e estilos gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  overflow-x: hidden; /* Prevenir scroll horizontal durante animações */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* Cabeçalho */
+header {
+  background: linear-gradient(to right, #1a237e, #283593);
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.seguranca {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.seguranca i {
+  margin-right: 0.5rem;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to bottom, #283593, #512da8);
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  /* Preparar para efeito de paralaxe */
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Efeito de partículas no hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 25px 25px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; /* Para ficar acima do efeito de partículas */
+}
+
+.hero .subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #bbdefb;
+  position: relative;
+}
+
+.cta-button {
+  background-color: #ffc107;
+  color: #212121;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s, background-color 0.3s;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de brilho no botão */
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
+  transform: rotate(30deg);
+  transition: transform 0.7s;
+}
+
+.cta-button:hover::before {
+  transform: rotate(30deg) translate(100%, 100%);
+}
+
+.cta-button:hover {
+  background-color: #ffca28;
+  transform: scale(1.05);
+}
+
+.cta-button i {
+  margin-left: 0.5rem;
+}
+
+.destaque {
+  font-weight: 600;
+  color: #ffeb3b;
+}
+
+/* Descrição */
+.descricao {
+  padding: 4rem 0;
+  background-color: #f5f5f5;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de sombra flutuante nos cards */
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, #1a237e, #512da8);
+  border-radius: 0 0 12px 12px;
+}
+
+.descricao h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.texto-principal {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.texto-principal p {
+  margin-bottom: 1rem;
+}
+
+.beneficios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.beneficio {
+  display: flex;
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Efeito hover nos benefícios */
+.beneficio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icone {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+/* Efeito de rotação nos ícones no hover */
+.beneficio:hover .icone {
+  transform: rotate(360deg);
+}
+
+.azul {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.verde {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.roxo {
+  background-color: #f3e5f5;
+  color: #6a1b9a;
+}
+
+.amarelo {
+  background-color: #fffde7;
+  color: #f9a825;
+}
+
+.beneficio h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.texto p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Depoimentos */
+.depoimentos {
+  background-color: #212121;
+  color: white;
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Padrão de fundo diagonal */
+.depoimentos::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.05) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 20px 20px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.depoimentos h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.cards-depoimentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card-depoimento {
+  background-color: #333;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #444;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Efeito de hover nos depoimentos */
+.card-depoimento:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background-color: #3c3c3c;
+}
+
+.estrelas {
+  color: #ffc107;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.texto-depoimento {
+  font-style: italic;
+  color: #bbb;
+  margin-bottom: 1.5rem;
+}
+
+.pessoa {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background-color: #3949ab;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.card-depoimento:hover .avatar {
+  transform: scale(1.1);
+}
+
+.info h4 {
+  margin-bottom: 0.2rem;
+}
+
+.info p {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* Preço */
+.preco {
+  background: linear-gradient(to bottom, #2c387e, #1976d2);
+  padding: 5rem 0;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de ondas no fundo */
+.preco::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: linear-gradient(
+        135deg,
+        transparent 75%,
+        rgba(255, 255, 255, 0.1) 75%
+      )
+      0 0,
+    linear-gradient(225deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%) 0 0,
+    linear-gradient(315deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%) 0 0,
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%) 0 0;
+  background-size: 30px 30px;
+  background-repeat: repeat-x;
+}
+
+.card-preco {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.card-preco:hover {
+  transform: translateY(-5px);
+}
+
+.faixa-destaque {
+  background-color: #ffc107;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de brilho na faixa destaque */
+.faixa-destaque::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  );
+  transform: rotate(30deg);
+  animation: shineEffect 3s infinite;
+}
+
+@keyframes shineEffect {
+  0% {
+    transform: rotate(30deg) translate(-100%, -100%);
+  }
+  100% {
+    transform: rotate(30deg) translate(100%, 100%);
+  }
+}
+
+.faixa-destaque h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin: 0;
+  position: relative;
+}
+
+.conteudo-preco {
+  padding: 2rem;
+}
+
+.valor {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.valor-antigo {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.riscado {
+  font-size: 1.5rem;
+  text-decoration: line-through;
+  color: #999;
+}
+
+.tag-desconto {
+  position: absolute;
+  top: -0.8rem;
+  right: -4rem;
+  background-color: #e53935;
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  transform: rotate(10deg);
+  z-index: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.valor-atual {
+  margin-top: 1rem;
+}
+
+.texto-pequeno {
+  color: #777;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.preco-grande {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #1565c0;
+  line-height: 1;
+  margin: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.card-preco:hover .preco-grande {
+  color: #0d47a1;
+}
+
+.preco-grande span {
+  font-size: 1.5rem;
+}
+
+.incluido {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.incluido h4 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.incluido h4 i {
+  color: #4caf50;
+  margin-right: 0.5rem;
+}
+
+.incluido ul {
+  list-style: none;
+}
+
+.incluido li {
+  display: flex;
+  margin-bottom: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+/* Efeito hover nos itens da lista */
+.incluido li:hover {
+  transform: translateX(5px);
+}
+
+.incluido li i {
+  color: #4caf50;
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.comprar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.urgencia {
+  color: #f57c00;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.urgencia i {
+  margin-right: 0.5rem;
+}
+
+.botao-comprar {
+  background-color: #43a047;
+  color: white;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, background-color 0.3s;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de brilho no botão de comprar */
+.botao-comprar::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
+  transform: rotate(30deg);
+  transition: transform 0.7s;
+}
+
+.botao-comprar:hover::before {
+  transform: rotate(30deg) translate(100%, 100%);
+}
+
+.botao-comprar:hover {
+  background-color: #2e7d32;
+  transform: scale(1.05);
+}
+
+.botao-comprar i {
+  margin-right: 0.5rem;
+}
+
+.seguro {
+  display: flex;
+  align-items: center;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.seguro i {
+  margin-right: 0.3rem;
+}
+
+/* FAQ */
+.faq {
+  padding: 4rem 0;
+  background-color: #f5f5f5;
+}
+
+.faq h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.perguntas {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pergunta {
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
+}
+
+.pergunta:last-child {
+  border-bottom: none;
+}
+
+.pergunta:hover {
+  background-color: #f9f9f9;
+}
+
+.botao-pergunta {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  background: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.botao-pergunta i {
+  color: #1976d2;
+  transition: transform 0.3s;
+}
+
+.resposta {
+  padding: 0 1.5rem 1.2rem;
+  color: #666;
+  display: none;
+}
+
+.pergunta.ativa {
+  background-color: #f0f7ff;
+}
+
+.pergunta.ativa .botao-pergunta {
+  color: #1565c0;
+}
+
+.pergunta.ativa .botao-pergunta i {
+  transform: rotate(180deg);
+}
+
+.pergunta.ativa .resposta {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Rodapé */
+footer {
+  background-color: #212121;
+  color: #999;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.copyright {
+  margin-bottom: 1rem;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.links a {
+  transition: color 0.3s;
+  position: relative;
+}
+
+.links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+.links a:hover {
+  color: white;
+}
+
+.aviso-legal {
+  font-size: 0.8rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .preco-grande {
+    font-size: 3rem;
+  }
+
+  .cards-depoimentos {
+    grid-template-columns: 1fr;
+  }
+
+  .beneficios {
+    grid-template-columns: 1fr;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+}
